@@ -173,6 +173,6 @@ npm run test:components
 
 <h2>Screenshots</h2>
 <p align="center">
-  <img width="600" alt="Study Dashboard" src="docs/dashboard-preview.png">
-  <img width="600" alt="AI Quiz Interface" src="docs/quiz-interface.png">
+  <!-- <img width="600" alt="Study Dashboard" src="docs/dashboard-preview.png">
+  <img width="600" alt="AI Quiz Interface" src="docs/quiz-interface.png"> -->
 </p>
