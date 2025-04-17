@@ -11,11 +11,10 @@ const toggleMobileMenu = () => {
 </script>
 
 <template>
-    <nav class="border-gray-200 bg-white py-2.5 dark:bg-gray-900">
+    <nav class="bg-background border-border py-2.5">
         <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4">
             <a href="#" class="flex items-center">
-                <span
-                    class="self-center whitespace-nowrap text-xl font-extrabold text-[#F25A2C] dark:text-white">FocusFlow</span>
+                <span class="self-center whitespace-nowrap text-xl font-extrabold text-primary">FocusFlow</span>
             </a>
             <div class="flex items-center lg:order-2">
                 <div class="mr-4 mt-2 hidden sm:inline-block">
@@ -25,16 +24,16 @@ const toggleMobileMenu = () => {
                 <!-- Desktop Buttons -->
                 <div class="hidden lg:flex items-center gap-5">
                     <ThemeToggle />
-                    <Button variant="outline">
+                    <Button variant="outline" class="button-hover">
                         Sign Up
                     </Button>
-                    <Button>
+                    <Button class="button-hover">
                         Get started
                     </Button>
                 </div>
 
                 <button @click="toggleMobileMenu" type="button"
-                    class="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden"
+                    class="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-muted-foreground hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring lg:hidden hover-effect"
                     aria-controls="mobile-menu-2" :aria-expanded="isMobileMenuOpen">
                     <span class="sr-only">Open main menu</span>
                     <svg v-if="!isMobileMenuOpen" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"
@@ -56,33 +55,33 @@ const toggleMobileMenu = () => {
                 <ul class="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
                     <li>
                         <a href="#"
-                            class="bg-purple-[#F25A2C] block rounded py-2 pl-3 pr-4 text-white dark:text-white lg:bg-transparent lg:p-0 lg:text-purple-700"
+                            class="nav-link bg-primary text-primary-foreground block rounded py-2 pl-3 pr-4 lg:bg-transparent lg:p-0 lg:text-primary"
                             aria-current="page">Features</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700 lg:dark:hover:bg-transparent lg:dark:hover:text-white">Blog</a>
+                            class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Blog</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700 lg:dark:hover:bg-transparent lg:dark:hover:text-white">Pricing</a>
+                            class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Pricing</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700 lg:dark:hover:bg-transparent lg:dark:hover:text-white">Contact</a>
+                            class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Contact</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-purple-700 lg:dark:hover:bg-transparent lg:dark:hover:text-white">Team</a>
+                            class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Team</a>
                     </li>
                     <!-- Mobile Buttons -->
                     <li class="lg:hidden">
                         <div class="flex flex-col gap-3 px-3 py-2">
                             <ThemeToggle />
-                            <Button variant="outline" class="w-full">
+                            <Button variant="outline" class="w-full button-hover">
                                 Sign Up
                             </Button>
-                            <Button class="w-full">
+                            <Button class="w-full button-hover">
                                 Get started
                             </Button>
                         </div>
