@@ -3,7 +3,7 @@
 import HeroSection from '@/components/heroSection/heroSection.vue';
 import GuestLayout from '@/layouts/guest/GuestLayout.vue';
 import Features from '@/components/features/features.vue';
-
+import Pricing from '@/components/pricing/pricing.vue';
 </script>
 
 <template>
@@ -12,6 +12,7 @@ import Features from '@/components/features/features.vue';
         <GuestLayout>
             <HeroSection/>
             <Features/>
+            <Pricing/>
         </GuestLayout>
     </div>
 
