@@ -7,6 +7,8 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -16,8 +18,7 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-use Laravel\Socialite\Facades\Socialite;
-
+// Google OAuth routes
 Route::get('google/auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 })->name('google.auth.redirect');
@@ -47,10 +48,12 @@ Route::get('auth/google/callback', function () {
 
         return redirect('/dashboard');
     } catch (\Exception $e) {
+        Log::error('Google auth error: ' . $e->getMessage());
         return redirect()->route('login')->with('status', 'Google authentication failed: ' . $e->getMessage());
     }
 });
 
+// GitHub OAuth routes
 Route::get('github/auth/redirect', function () {
     return Socialite::driver('github')->redirect();
 })->name('github.auth.redirect');
@@ -85,12 +88,13 @@ Route::get('auth/github/callback', function () {
             'email' => $githubUser->email ?? "{$githubUser->nickname}@github.user",
             'github_id' => $githubUser->id,
             'password' => bcrypt(Str::random(16)),
-            'email_verified_at' => now(),
+            'email_verified_at' => now(), // Already verified by OAuth provider
         ]);
 
         Auth::login($newUser, true);
         return redirect('/dashboard');
     } catch (\Exception $e) {
+        Log::error('GitHub auth error: ' . $e->getMessage());
         return redirect()->route('login')->with('status', 'GitHub authentication failed: ' . $e->getMessage());
     }
 });
