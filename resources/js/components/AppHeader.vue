@@ -1,4 +1,4 @@
-<script setup lang="ts">
+ye<script setup lang="ts">
 import AppLogo from '@/components/AppLogo.vue';
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
