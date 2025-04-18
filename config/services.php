@@ -42,9 +42,9 @@ return [
     ],
 
     'github' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_REDIRECT_URI', 'http://127.0.0.1:8001/auth/github/callback'),
+        'client_id' => env('GITHUBE_CLIENT_ID'),
+        'client_secret' => env('GITHUBE_CLIENT_SECRET'),
+        'redirect' => env('GITHUBE_REDIRECT_URI', 'http://127.0.0.1:8001/auth/github/callback'),
     ],
 
 ];
