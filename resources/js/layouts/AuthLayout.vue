@@ -16,7 +16,7 @@ defineProps<{
         :is="variant === 'card' ? AuthCardLayout : variant === 'split' ? AuthSplitLayout : AuthSimpleLayout"
         :title="title"
         :description="description"
-        :class="class"
+        :class="$attrs.class"
     >
         <slot />
     </component>

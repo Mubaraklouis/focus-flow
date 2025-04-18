@@ -5,15 +5,14 @@ import { Link } from '@inertiajs/vue3';
 defineProps<{
     title?: string;
     description?: string;
-    class?: string;
 }>();
 </script>
 
 <template>
-    <div class="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10" :class="class">
+    <div class="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
         <div class="flex w-full max-w-md flex-col gap-6">
             <Link :href="route('home')" class="group flex items-center gap-2 self-center font-medium transition-all duration-300 hover:scale-105">
-                <div class="flex h-10 w-10 items-center justify-center bg-primary/10 p-2 transition-all duration-300 group-hover:bg-primary/20">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 p-2 transition-all duration-300 group-hover:bg-primary/20">
                     <span class="text-primary font-bold text-base">Focus</span>
                 </div>
                 <span class="text-primary font-bold text-xl">Flow</span>
