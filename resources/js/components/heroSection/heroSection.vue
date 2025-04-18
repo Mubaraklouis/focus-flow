@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import AvatarStack from '@/components/ui/avatar/AvatarStack.vue';
 import newFeature from '@/components/heroSection/newFeature.vue'
 import trustedCompanies from '@/components/heroSection/trustedCompanies.vue'
-
+import { Link } from '@inertiajs/vue3';
 
 </script>
 <template>
@@ -22,8 +22,8 @@ import trustedCompanies from '@/components/heroSection/trustedCompanies.vue'
             <p class="text-md lg:text-md mt-6 font-light">Stay on top of your  courses assignments <br>quizes and project
                 with real world insights and productivity tools </p>
             <p class="mt-8 md:mt-12 flex gap-4">
-                <Button>Get Started</Button>
-                <Button variant="outline">Learn More</Button>
+             <Link href="/login">    <Button>Get Started</Button></Link>
+               <Link href="/about"> <Button variant="outline">Learn More</Button></Link>
             </p>
             <div class="flex mt-8 items-center justify-center lg:justify-start gap-3">
                 <div class="flex items-center gap-2 text-sm">

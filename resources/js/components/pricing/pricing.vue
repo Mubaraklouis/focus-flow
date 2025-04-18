@@ -22,7 +22,7 @@ const getYearlySavings = (monthlyPrice: number) => {
 };
 </script>
 <template>
-<div>
+<div id="pricing">
     <div class="sm:flex sm:flex-col sm:align-center p-10">
     <div class="relative self-center bg-border rounded-lg p-0.5 flex">
         <button type="button"
