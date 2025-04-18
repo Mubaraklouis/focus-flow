@@ -48,10 +48,10 @@ html {
 
     .dark {
         /* Dark mode */
-        --background: 240 10% 5.9%;  /* Slightly lighter dark background */
+        --background: 219 46% 11%;  /* Updated dark background color */
         --foreground: 0 0% 98%;
-        --card: 240 10% 5.9%;
-        --card-foreground: 0 0% 98%;
+        --card: 217 33% 18%;  /* Updated card background color */
+        --card-foreground: 217 33% 18%;  /* Updated card foreground color */
         --popover: 240 10% 5.9%;
         --popover-foreground: 0 0% 98%;
         --primary: 14 97% 56%;  /* Keeping brand color */
@@ -60,7 +60,7 @@ html {
         --secondary-foreground: 0 0% 98%;
         --muted: 240 3.7% 17.9%;
         --muted-foreground: 240 5% 75%;  /* Lighter muted text for better contrast */
-        --accent: 14 97% 20%;  /* Darker version of primary for hover */
+        --accent: 217 33% 18%;  /* Updated accent color */
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
@@ -72,11 +72,11 @@ html {
         --chart-3: 30 80% 55%;
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
-        --sidebar-background: 0 0% 9%;
+        --sidebar-background: 217 33% 18%;  /* Updated sidebar background color */
         --sidebar-foreground: 0 0% 95.9%;
         --sidebar-primary: 0 0% 98%;
         --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 14 97% 20%;  /* Matching accent */
+        --sidebar-accent: 217 33% 18%;  /* Updated sidebar accent color */
         --sidebar-accent-foreground: 0 0% 98%;
         --sidebar-border: 240 3.7% 17.9%;
         --sidebar-ring: 14 97% 56%;

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import Button from '@/components/ui/button/Button.vue';
 import ThemeToggle from '@/components/ThemeToggle.vue';
-
+import { Link } from '@inertiajs/vue3';
 const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {
@@ -27,9 +27,7 @@ const toggleMobileMenu = () => {
                     <Button variant="outline" class="button-hover">
                         Sign Up
                     </Button>
-                    <Button class="button-hover">
-                        Get started
-                    </Button>
+                    <Link href="/register">    <Button>Get Started</Button></Link>
                 </div>
 
                 <button @click="toggleMobileMenu" type="button"
@@ -54,24 +52,24 @@ const toggleMobileMenu = () => {
                 :class="{ hidden: !isMobileMenuOpen }" id="mobile-menu-2">
                 <ul class="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
                     <li>
-                        <a href="#"
+                        <a href="#features"
                             class="nav-link bg-primary text-primary-foreground block rounded py-2 pl-3 pr-4 lg:bg-transparent lg:p-0 lg:text-primary"
                             aria-current="page">Features</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="#blog"
                             class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Blog</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="#pricing"
                             class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Pricing</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="#contact"
                             class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Contact</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="#team"
                             class="nav-link block border-b border-border py-2 pl-3 pr-4 text-foreground lg:border-0 lg:p-0">Team</a>
                     </li>
                     <!-- Mobile Buttons -->
