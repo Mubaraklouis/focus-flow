@@ -24,9 +24,10 @@ const toggleMobileMenu = () => {
                 <!-- Desktop Buttons -->
                 <div class="hidden lg:flex items-center gap-5">
                     <ThemeToggle />
-                    <Button variant="outline" class="button-hover">
+                 <Link href="/register">   <Button variant="outline" class="button-hover">
                         Sign Up
                     </Button>
+                </Link>
                     <Link href="/register">    <Button>Get Started</Button></Link>
                 </div>
 

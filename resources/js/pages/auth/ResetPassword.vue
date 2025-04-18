@@ -31,49 +31,65 @@ const submit = () => {
 </script>
 
 <template>
-    <AuthLayout title="Reset password" description="Please enter your new password below">
+    <AuthLayout
+        title="Reset password"
+        description="Please enter your new password below"
+        variant="card"
+    >
         <Head title="Reset password" />
 
         <form @submit.prevent="submit">
             <div class="grid gap-6">
                 <div class="grid gap-2">
-                    <Label for="email">Email</Label>
-                    <Input id="email" type="email" name="email" autocomplete="email" v-model="form.email" class="mt-1 block w-full" readonly />
-                    <InputError :message="form.errors.email" class="mt-2" />
+                    <Label class="text-sm font-medium text-foreground" for="email">Email</Label>
+                    <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        v-model="form.email"
+                        readonly
+                        class="w-full border border-input bg-background/80 text-foreground/80 focus:ring-2 focus:ring-primary/50 focus:border-primary cursor-not-allowed"
+                    />
+                    <InputError :message="form.errors.email" />
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password">Password</Label>
+                    <Label class="text-sm font-medium text-foreground" for="password">Password</Label>
                     <Input
                         id="password"
                         type="password"
                         name="password"
                         autocomplete="new-password"
                         v-model="form.password"
-                        class="mt-1 block w-full"
                         autofocus
                         placeholder="Password"
+                        class="w-full border border-input bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary"
                     />
                     <InputError :message="form.errors.password" />
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password_confirmation"> Confirm Password </Label>
+                    <Label class="text-sm font-medium text-foreground" for="password_confirmation">Confirm Password</Label>
                     <Input
                         id="password_confirmation"
                         type="password"
                         name="password_confirmation"
                         autocomplete="new-password"
                         v-model="form.password_confirmation"
-                        class="mt-1 block w-full"
                         placeholder="Confirm password"
+                        class="w-full border border-input bg-background text-foreground focus:ring-2 focus:ring-primary/50 focus:border-primary"
                     />
                     <InputError :message="form.errors.password_confirmation" />
                 </div>
 
-                <Button type="submit" class="mt-4 w-full" :disabled="form.processing">
-                    <LoaderCircle v-if="form.processing" class="h-4 w-4 animate-spin" />
-                    Reset password
+                <Button
+                    type="submit"
+                    class="mt-4 w-full bg-primary hover:bg-primary/90 text-primary-foreground py-2.5 transition-all shadow-sm hover:shadow-md"
+                    :disabled="form.processing"
+                >
+                    <LoaderCircle v-if="form.processing" class="h-4 w-4 mr-2 animate-spin" />
+                    {{ form.processing ? 'Resetting password...' : 'Reset password' }}
                 </Button>
             </div>
         </form>

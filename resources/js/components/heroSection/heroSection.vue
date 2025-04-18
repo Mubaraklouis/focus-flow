@@ -22,8 +22,8 @@ import { Link } from '@inertiajs/vue3';
             <p class="text-md lg:text-md mt-6 font-light">Stay on top of your  courses assignments <br>quizes and project
                 with real world insights and productivity tools </p>
             <p class="mt-8 md:mt-12 flex gap-4">
-             <Link href="/register">    <Button>Get Started</Button></Link>
-                <Button variant="outline">Learn More</Button>
+             <Link href="/login">    <Button>Get Started</Button></Link>
+               <Link href="/about"> <Button variant="outline">Learn More</Button></Link>
             </p>
             <div class="flex mt-8 items-center justify-center lg:justify-start gap-3">
                 <div class="flex items-center gap-2 text-sm">

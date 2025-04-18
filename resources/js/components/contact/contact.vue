@@ -23,6 +23,9 @@ const submit = ()=>{
 
 </script>
 
+
+
+
 <template>
  <section id="contact" class="contact-section-wrapper my-10 bg-[#FFFAFA] dark:bg-gray-900">
 
