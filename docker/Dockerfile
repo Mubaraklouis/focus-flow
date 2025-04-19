@@ -1,6 +1,6 @@
 FROM php:8.3-alpine
 
-# Accept build arguments for secrets
+# Accept build arguments for secrets (used if .env isn't copied)
 ARG DB_CONNECTION=mysql
 ARG DB_HOST=127.0.0.1
 ARG DB_PORT=3306
@@ -42,10 +42,20 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
     --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /app
+
+# Copy composer files first for better layer caching
+COPY composer.json composer.lock ./
+
+# Install PHP dependencies
+RUN composer install --no-dev --no-scripts --no-interaction --optimize-autoloader
+
+# Copy the rest of the application
 COPY . .
 
-# Create .env file from build arguments
-RUN echo "APP_ENV=production" > .env && \
+# If .env doesn't exist, create it from build arguments
+RUN if [ ! -f .env ]; then \
+    echo "Creating .env file from build arguments..." && \
+    echo "APP_ENV=production" > .env && \
     echo "APP_DEBUG=false" >> .env && \
     echo "APP_URL=http://localhost" >> .env && \
     echo "DB_CONNECTION=${DB_CONNECTION}" >> .env && \
@@ -63,22 +73,32 @@ RUN echo "APP_ENV=production" > .env && \
     echo "GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}" >> .env && \
     echo "GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}" >> .env && \
     echo "GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}" >> .env && \
-    echo "GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}" >> .env
+    echo "GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}" >> .env; \
+fi
 
-# Install PHP dependencies
-RUN composer install --no-interaction --optimize-autoloader
+# Make sure the .env file has proper permissions
+RUN chmod 644 .env
+
+# Run composer scripts now that the .env is available
+RUN composer dump-autoload --optimize
 
 # Install Node.js dependencies and build assets
 RUN npm install && npm run build
 
-# Add entrypoint script and set permissions
+# Add entrypoint script
 COPY docker/entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Run setup commands during build
-RUN /usr/local/bin/entrypoint.sh
+# Make sure storage directory is writable
+RUN mkdir -p storage/app/public storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+# Generate app key if not present
+RUN php artisan key:generate --force
 
 EXPOSE 8000
 
-# Keep the original CMD
+# Use the entrypoint script to ensure environment is properly setup before serving
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
