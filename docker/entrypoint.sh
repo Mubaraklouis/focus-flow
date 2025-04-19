@@ -9,6 +9,12 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
+# Print .env file location for verification
+echo "Verifying .env file location..."
+pwd
+ls -la .env
+echo "The .env file is located at: $(pwd)/.env"
+
 # Generate app key if not set
 if ! grep -q "APP_KEY=" .env || grep -q "APP_KEY=$" .env; then
     echo "Generating application key..."
