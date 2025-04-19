@@ -18,7 +18,7 @@ jobs:
     - name: Checkout private env repository
       uses: actions/checkout@v4
       with:
-        repository: focusflow-env # Private repository containing only the .env file
+        repository: Mubaraklouis/focusflow-env # Must use format {owner}/{repo}
         token: ${{ secrets.ENV_REPO_PAT }} # Personal access token with repo access
         path: env-repo
 
